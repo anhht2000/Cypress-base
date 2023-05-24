@@ -114,12 +114,26 @@ export const routeConfig: RouteConfigProps[] = [
     name: "",
     path: "/orders/:orderId",
     component: lazy(
-      () => import(/* webpackPrefetch: true */ "@pages/orders/OrderDetail"),
+      () =>
+        import(/* webpackPrefetch: true */ "@pages/orders/detail/OrderDetail"),
     ),
     isProtected: true,
     isMenu: false,
     permission: "update-order",
   },
+  {
+    id: "CreateOrderPage",
+    name: "",
+    path: "/orders/create",
+    component: lazy(
+      () =>
+        import(/* webpackPrefetch: true */ "@pages/orders/create/CreateOrder"),
+    ),
+    isProtected: true,
+    isMenu: false,
+    permission: "create-order",
+  },
+
   {
     id: "NotFoundPage",
     name: "Not Found",

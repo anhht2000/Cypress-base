@@ -123,3 +123,11 @@ export interface DataListLayoutType
     AppBreadcrumbProps,
     PaginationProps,
     HeaderPageProps {}
+
+export interface ProductCartProps extends BaseEntityProps {
+  category: string;
+  variant: string;
+  quality: number;
+  price: number;
+  avatar: string;
+}

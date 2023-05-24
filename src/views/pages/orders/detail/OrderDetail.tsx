@@ -14,13 +14,44 @@ import { getClassStatusOrder } from "@utils/helperFuntions";
 import { Col, Row, Tag } from "antd";
 import { useParams } from "react-router-dom";
 import moment from "moment";
+import Table, { ColumnsType } from "antd/es/table";
 import { SCOrderDetail } from "./style";
+
+interface DataType {
+  key: string;
+  name: string;
+  quality: number;
+  price: number;
+  total: number;
+}
+
+const columns: ColumnsType<DataType> = [
+  {
+    title: "Name",
+    dataIndex: "name",
+    key: "name",
+  },
+  {
+    title: "Quality",
+    dataIndex: "quality",
+    key: "quality",
+  },
+  {
+    title: "Price",
+    dataIndex: "price",
+    key: "price",
+  },
+  {
+    title: "Total",
+    key: "total",
+    dataIndex: "total",
+  },
+];
 
 export default function OrderDetail() {
   const { orderId } = useParams();
   const { data: detailOrder, isLoading: loadingDetailOrder } =
     useGetOrderDetailQuery(orderId, { skip: !orderId });
-  console.log(detailOrder);
 
   return (
     <SCOrderDetail>
@@ -123,27 +154,7 @@ export default function OrderDetail() {
                       2 Products
                     </Tag>
                   </div>
-                  <div className="__item">
-                    <div className="__icon">
-                      <BookOutlined />
-                    </div>
-                    <div className="__text">Test</div>
-                    <div className="__text_value">___</div>
-                  </div>
-                  <div className="__item">
-                    <div className="__icon">
-                      <BookOutlined />
-                    </div>
-                    <div className="__text">Test</div>
-                    <div className="__text_value">___</div>
-                  </div>
-                  <div className="__item">
-                    <div className="__icon">
-                      <BookOutlined />
-                    </div>
-                    <div className="__text">Test</div>
-                    <div className="__text_value">___</div>
-                  </div>
+                  <Table columns={columns} dataSource={[]} />
                 </div>
               </Col>
               <Col className="__order_info" span={8}>
