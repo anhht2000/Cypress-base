@@ -14,12 +14,17 @@ export const SSlot = styled.section<{ prefix: string }>`
   border-radius: 8px;
   padding: 24px 0;
   padding-bottom: 0;
+  color: #1a1c21;
 
   ${({ prefix }) => `
     .${prefix}__header {
       grid-area: header;
       padding: 0 24px;
       margin-bottom: 14px;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: 0.005em;
     }
 
     .${prefix}__content {
