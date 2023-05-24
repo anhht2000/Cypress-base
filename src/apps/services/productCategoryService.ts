@@ -1,18 +1,13 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import restBaseQueryWithReauth from "@apps/config/baseQueryWithReauth";
-import { ProductCategoryProps, ResponseProps } from "@globalTypes/globalTypes";
+import {
+  PaginationResponseProps,
+  ProductCategoryProps,
+  QueryProps,
+  ResponseProps,
+} from "@globalTypes/globalTypes";
 
-interface QueryProps {
-  per_page?: string | number;
-  page?: string | number;
-  keyword: string | null;
-}
-
-interface DataProps {
-  per_page: number;
-  total: number;
-  data: ProductCategoryProps[];
-}
+type DataProps = PaginationResponseProps<ProductCategoryProps>;
 
 export const productCategoryServiceApi = createApi({
   reducerPath: "productCategoryServiceApi",
@@ -26,8 +21,8 @@ export const productCategoryServiceApi = createApi({
         method: "GET",
       }),
       providesTags: ["productCategoryTag"],
-      transformResponse: (res: ResponseProps<DataProps>) => {
-        const { per_page, total, data }: DataProps = res.data;
+      transformResponse: (res: DataProps) => {
+        const { per_page, total, data } = res.data;
         return { per_page, total, data };
       },
     }),
