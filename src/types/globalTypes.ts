@@ -55,6 +55,20 @@ export interface ProductProps extends BaseEntityProps {
   view: number;
 }
 
+export interface OrderProps extends BaseEntityProps {
+  code: string;
+  phone: number;
+  email: string;
+  address: string;
+  delivery: number;
+  payment: number;
+  status: number;
+  totalPrice: number;
+  created_at: string;
+  updated_at: string;
+  note?: string;
+}
+
 export interface ProductCategoryProps extends BaseEntityProps {
   parentId: number;
 }

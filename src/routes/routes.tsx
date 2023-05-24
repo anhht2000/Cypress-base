@@ -3,6 +3,7 @@ import {
   GoldOutlined,
   OrderedListOutlined,
   ProfileOutlined,
+  ShoppingCartOutlined,
 } from "@ant-design/icons";
 
 export interface RouteConfigProps {
@@ -95,6 +96,29 @@ export const routeConfig: RouteConfigProps[] = [
     isProtected: true,
     isMenu: true,
     permission: "list-post",
+  },
+  {
+    id: "ListOrderPage",
+    name: "Danh mục đặt hàng",
+    icon: <ShoppingCartOutlined />,
+    path: "/orders",
+    component: lazy(
+      () => import(/* webpackPrefetch: true */ "@pages/orders/OrderList"),
+    ),
+    isProtected: true,
+    isMenu: true,
+    permission: "list-order",
+  },
+  {
+    id: "OrderDetailPage",
+    name: "",
+    path: "/orders/:orderId",
+    component: lazy(
+      () => import(/* webpackPrefetch: true */ "@pages/orders/OrderDetail"),
+    ),
+    isProtected: true,
+    isMenu: false,
+    permission: "update-order",
   },
   {
     id: "NotFoundPage",
