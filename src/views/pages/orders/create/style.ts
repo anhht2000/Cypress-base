@@ -3,6 +3,14 @@ import styled from "styled-components";
 export const SCCreateOrder = styled.div`
   background-color: #ffffff;
   padding: 48px;
+  .__choose_product_container {
+    width: 100%;
+    .ant-space-item:nth-child(2) {
+      flex: 1;
+    }
+    .__selection {
+    }
+  }
   .__total_info {
     display: flex;
     flex-direction: column;

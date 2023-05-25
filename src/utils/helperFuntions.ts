@@ -10,3 +10,13 @@ export function getClassStatusOrder(status: number) {
       return { color: "orange", text: "Progress" };
   }
 }
+
+export function convertFormatCurrency(money: number) {
+  if (!money) return "0 VND";
+  else {
+    return money.toLocaleString("it-IT", {
+      style: "currency",
+      currency: "VND",
+    });
+  }
+}

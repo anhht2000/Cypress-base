@@ -15,6 +15,11 @@ export const SCOrderDetail = styled.div`
         padding: 10px 0;
         color: #000;
       }
+      .__total_price {
+        text-align: end;
+        font-size: 18px;
+        font-weight: 600;
+      }
       .__item {
         display: flex;
         align-items: center;

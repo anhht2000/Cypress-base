@@ -27,9 +27,9 @@ export const orderServiceApi = createApi({
         return { per_page, total, data };
       },
     }),
-    createProduct: builder.mutation({
+    createOrder: builder.mutation({
       query: (payload) => ({
-        url: "/products",
+        url: "/orders",
         method: "POST",
         body: payload,
       }),
@@ -64,4 +64,5 @@ export const orderServiceApi = createApi({
   }),
 });
 
-export const { useGetOrderDetailQuery } = orderServiceApi;
+export const { useGetOrderDetailQuery, useCreateOrderMutation } =
+  orderServiceApi;

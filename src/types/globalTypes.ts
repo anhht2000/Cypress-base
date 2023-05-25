@@ -55,7 +55,7 @@ export interface ProductProps extends BaseEntityProps {
   view: number;
 }
 
-export interface OrderProps extends BaseEntityProps {
+export interface OrderInfoProps extends BaseEntityProps {
   code: string;
   phone: number;
   email: string;
@@ -67,6 +67,18 @@ export interface OrderProps extends BaseEntityProps {
   created_at: string;
   updated_at: string;
   note?: string;
+}
+
+export interface ProductOrderInfoProps extends Pick<BaseEntityProps, "id"> {
+  quantity: number;
+  price: number;
+  created_at: string;
+  products: Pick<ProductProps, "id" | "name" | "avatar">;
+}
+
+export interface OrderProps extends BaseEntityProps {
+  orderDetail: OrderInfoProps;
+  orderItems: ProductOrderInfoProps[];
 }
 
 export interface ProductCategoryProps extends BaseEntityProps {
@@ -130,4 +142,17 @@ export interface ProductCartProps extends BaseEntityProps {
   quality: number;
   price: number;
   avatar: string;
+}
+
+export interface ContactProps {
+  address: string;
+  email: string;
+  name: string;
+  note: string;
+  phone: number;
+}
+
+export interface ItemDropdownInterface {
+  value: string | number;
+  label: string;
 }
