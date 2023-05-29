@@ -136,12 +136,14 @@ export interface DataListLayoutType
     PaginationProps,
     HeaderPageProps {}
 
-export interface ProductCartProps extends BaseEntityProps {
-  category: string;
-  variant: string;
-  quality: number;
-  price: number;
-  avatar: string;
+export interface ProductCategoriesCartProps extends BaseEntityProps {
+  variants: string;
+  parent_id: number;
+}
+
+export interface ProductCartProps extends BaseEntityProps, ProductProps {
+  product_categories: ProductCategoriesCartProps;
+  quantity: number;
 }
 
 export interface ContactProps {

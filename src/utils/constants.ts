@@ -33,3 +33,6 @@ export const fakeDataCarts = [
     avatar: "https://picsum.photos/200/300/?blur=2",
   },
 ];
+
+export const urlNoImage =
+  "https://as2.ftcdn.net/v2/jpg/00/89/55/15/1000_F_89551596_LdHAZRwz3i4EM4J0NHNHy2hEUYDfXc0j.jpg";

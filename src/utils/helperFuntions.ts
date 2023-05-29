@@ -1,3 +1,5 @@
+import { ProductCartProps } from "@globalTypes/globalTypes";
+
 export function emptyFunction() {
   return;
 }
@@ -19,4 +21,10 @@ export function convertFormatCurrency(money: number) {
       currency: "VND",
     });
   }
+}
+
+export function grandTotal(arr: ProductCartProps[]) {
+  return arr.reduce((sum, i) => {
+    return sum + i.price * (i.quantity || 1);
+  }, 0);
 }

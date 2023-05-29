@@ -60,7 +60,6 @@ export default function OrderDetail() {
   const { orderId } = useParams();
   const { data: detailOrder, isLoading: loadingDetailOrder } =
     useGetOrderDetailQuery(orderId, { skip: !orderId });
-  console.log(detailOrder);
 
   return (
     <SCOrderDetail>
