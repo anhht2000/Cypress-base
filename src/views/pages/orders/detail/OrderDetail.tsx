@@ -20,6 +20,8 @@ import moment from "moment";
 import Table, { ColumnsType } from "antd/es/table";
 import { SCOrderDetail } from "./style";
 import { ProductOrderInfoProps } from "@globalTypes/globalTypes";
+import CustomBreadcrumb from "@components/custom-breadcrumb/CustomBreadcrumb";
+import { breadcrumbs } from "@utils/breadcrumb";
 
 const columns: ColumnsType<ProductOrderInfoProps> = [
   {
@@ -67,6 +69,15 @@ export default function OrderDetail() {
         <Loading isLoading={loadingDetailOrder} />
       ) : (
         <Row gutter={24}>
+          <Col className="__order_info" span={24}>
+            <h1 className="title">Orders Detail</h1>
+            <div className="__breadcrumbs">
+              <CustomBreadcrumb
+                items={breadcrumbs.productCategory}
+                separator=">"
+              />
+            </div>
+          </Col>
           <Col className="__order_info" span={8}>
             <div className="__order_info_item">
               <div className="__title">
@@ -167,7 +178,7 @@ export default function OrderDetail() {
                   <div className="__title">
                     Order List
                     <Tag color="green" className="ml-20">
-                      2 Products
+                      {detailOrder?.orderItems.length + " Products"}
                     </Tag>
                   </div>
                   <Table
@@ -177,10 +188,11 @@ export default function OrderDetail() {
                   />
                   <div className="__total_price mt-20">
                     {`Total : ${
-                      detailOrder?.orderDetail?.totalPrice &&
-                      convertFormatCurrency(
-                        detailOrder?.orderDetail?.totalPrice,
-                      )
+                      detailOrder?.orderDetail?.totalPrice
+                        ? convertFormatCurrency(
+                            detailOrder?.orderDetail?.totalPrice,
+                          )
+                        : ""
                     }`}
                   </div>
                 </div>

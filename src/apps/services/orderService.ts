@@ -1,13 +1,14 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import restBaseQueryWithReauth from "@apps/config/baseQueryWithReauth";
 import {
+  OrderInfoProps,
   OrderProps,
   PaginationResponseProps,
   QueryProps,
   ResponseProps,
 } from "@globalTypes/globalTypes";
 
-type DataProps = PaginationResponseProps<OrderProps>;
+type DataProps = PaginationResponseProps<OrderInfoProps>;
 
 export const orderServiceApi = createApi({
   reducerPath: "orderServiceApi",
@@ -15,9 +16,9 @@ export const orderServiceApi = createApi({
   keepUnusedDataFor: 30,
   tagTypes: ["orderServiceApi"],
   endpoints: (builder) => ({
-    getProducts: builder.query({
+    getOrders: builder.query({
       query: (query?: QueryProps) => ({
-        url: `/products`,
+        url: `/orders`,
         params: { ...query },
         method: "GET",
       }),
@@ -54,9 +55,9 @@ export const orderServiceApi = createApi({
       invalidatesTags: ["orderServiceApi"],
     }),
 
-    deleteProduct: builder.mutation({
+    deleteOrder: builder.mutation({
       query: (id) => ({
-        url: `/products/${id}`,
+        url: `/orders/${id}`,
         method: "Delete",
       }),
       invalidatesTags: ["orderServiceApi"],
@@ -64,5 +65,9 @@ export const orderServiceApi = createApi({
   }),
 });
 
-export const { useGetOrderDetailQuery, useCreateOrderMutation } =
-  orderServiceApi;
+export const {
+  useGetOrderDetailQuery,
+  useCreateOrderMutation,
+  useGetOrdersQuery,
+  useDeleteOrderMutation,
+} = orderServiceApi;

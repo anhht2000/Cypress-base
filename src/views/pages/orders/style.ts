@@ -35,3 +35,68 @@ export const SCOrderDetail = styled.div`
     }
   }
 `;
+
+export const SCOrderList = styled.div`
+  .category-header {
+    margin-bottom: 24px;
+    .__title {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 32px;
+    }
+    .__extra {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      .__button {
+        .custom-btn {
+          gap: 4px;
+          height: 40px;
+          font-weight: 600;
+          font-size: 14px;
+        }
+        .export-button {
+          margin-right: 16px;
+          color: #5c59e8;
+          border: unset;
+        }
+      }
+    }
+  }
+  .content-wrapper {
+    .__action {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      .__input {
+        .custom-search {
+          width: 320px;
+          height: 40px;
+          background: #ffffff;
+          border: 1px solid #e0e2e7;
+          .anticon-search {
+            font-size: 18px;
+            margin-right: 8px;
+          }
+          input:placeholder {
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.005em;
+            color: #858d9d;
+          }
+        }
+      }
+      .__filter {
+        button {
+          width: 98px;
+          height: 40px;
+          background: #ffffff;
+          border: 1px solid #e0e2e7;
+        }
+      }
+    }
+  }
+`;
