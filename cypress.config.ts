@@ -6,6 +6,8 @@ export default defineConfig({
       framework: "create-react-app",
       bundler: "webpack",
     },
+    supportFile: false,
+    specPattern: "cypress/**/*.cy.{js,jsx,ts,tsx}",
     // slowTestThreshold: 15000,
   },
 
