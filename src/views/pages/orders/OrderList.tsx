@@ -76,6 +76,10 @@ export default function ProductCategories() {
     }
   };
 
+  const a = (e: any) => {
+    console.log("hehhe", e);
+  };
+
   return (
     <SCOrderList>
       <Spin spinning={isFetching}>
@@ -94,6 +98,7 @@ export default function ProductCategories() {
               <Button
                 icon={<ExportOutlined />}
                 className="export-button custom-btn light-background"
+                onClick={a}
               >
                 Export
               </Button>
